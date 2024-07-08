@@ -1,0 +1,9 @@
+<!-- app/views/documents/index.html.erb -->
+
+<h1>Documents</h1>
+
+<ul>
+  <% @documents.each do |document| %>
+    <li><%= link_to document.title, document_path(document) %></li>
+  <% end %>
+</ul>
