@@ -26,3 +26,16 @@ RSpec.describe Document, type: :model do
   it { should validate_presence_of(:title) }
   it { should belong_to(:user) }
 end
+
+# scope :in_irish, -> { where(language: 'irish') }
+
+# RSpec.describe Book, type: :model do
+#   describe ".in_irish" do
+#     it "only includes books that are Irish" do
+#       cúpla_focal = Book.create!(language: 'irish')
+#       an_hobad = Book.create!(language: 'irish')
+#       Book.create!(language: 'english')
+#       expect(Book.in_irish).to contain_exactly(cúpla_focal, an_hobad)
+#     end
+#   end
+# end
