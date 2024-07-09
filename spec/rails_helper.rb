@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'database_cleaner'
+require 'devise'
 require 'omniauth'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -16,7 +17,6 @@ end
 
 RSpec.configure do |config|
   OmniAuth.config.test_mode = true
-
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]

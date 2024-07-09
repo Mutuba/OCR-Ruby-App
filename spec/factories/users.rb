@@ -15,8 +15,10 @@
 #  avatar_url             :string
 #  full_name              :string
 #
-require 'rails_helper'
-
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+FactoryBot.define do
+  factory :user do
+    full_name { 'Daniel' 'Greenman' }
+    email { Faker::Internet.unique.email }
+    password { 'password' }
+  end
 end

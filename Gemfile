@@ -77,3 +77,4 @@ gem "ruby-vips"
 gem 'google-api-client', '~> 0.44'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem 'active_storage_validations'

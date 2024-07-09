@@ -1,8 +1,21 @@
+# == Schema Information
+#
+# Table name: documents
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :bigint           not null
+#
 class Document < ApplicationRecord
   validates :title, presence: true
 
   has_one_attached :file
   belongs_to :user
+
+  validates :file, content_type: [:gif, :png, :jpg, :jpeg]
+
 
   def perform_ocr
     return unless file.attached?

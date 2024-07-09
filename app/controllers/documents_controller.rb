@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to @document, notice: 'Document was successfully uploaded.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
   
