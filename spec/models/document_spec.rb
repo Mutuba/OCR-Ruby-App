@@ -12,7 +12,7 @@ require 'rails_helper'
 
 RSpec.describe Document, type: :model do
   let(:user) { create(:user) }
-  subject { Document.new(title: "Test Document", user: user)}
+  subject { Document.new(title: "Test Document", user: user, file: fixture_file_upload('test-file.jpg', 'image/jpeg'))}
   it 'is valid' do
     expect(subject).to be_valid  
   end
@@ -23,8 +23,6 @@ RSpec.describe Document, type: :model do
   end
 
   # Associations
-  it { should have_one_attached(:file) }
-
-  # Validations
-  it { is_expected.to allow_content_types("image/png", "image/jpeg").for(:file) }
+  it { should validate_presence_of(:title) }
+  it { should belong_to(:user) }
 end

@@ -10,8 +10,9 @@
 #
 class Document < ApplicationRecord
   validates :title, presence: true
-
+ 
   has_one_attached :file
+  validates :file, attached: true
   belongs_to :user
 
   validates :file, content_type: [:gif, :png, :jpg, :jpeg]
