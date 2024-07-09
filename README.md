@@ -83,6 +83,7 @@ rails db:migrate
 
 ### Project Structure
 
+- `app/models/user.rb`: Model representing the User to enable user authentication.
 - `app/models/document.rb`: Model representing the Document with file attachment and OCR method.
 - `app/controllers/documents_controller.rb`: Controller handling document upload and OCR.
 - `app/views/documents/new.html.erb`: Form for uploading a new document.
