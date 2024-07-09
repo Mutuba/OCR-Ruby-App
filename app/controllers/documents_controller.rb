@@ -1,6 +1,8 @@
 class DocumentsController < ApplicationController
-  def index
-    @documents = Document.all
+  before_action :authenticate_user!
+
+  def index    
+    @documents = current_user.documents.all
   end
 
   def new
@@ -8,26 +10,21 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(document_params)
+    @document = current_user.documents.new(document_params)
     if @document.save
       redirect_to @document, notice: 'Document was successfully uploaded.'
     else
       render :new
     end
   end
+  
 
   def show
-    @document = Document.find(params[:id])
+    @document = current_user.documents.find(params[:id])
     @ocr_text = @document.perform_ocr
   end
 
   private
-
-  def parse_tsv(file)
-    tsv_content = file.download
-    rows = tsv_content.split("\n").map { |row| row.split("\t") }
-    rows
-  end
   
   def document_params
     params.require(:document).permit(:title, :file)

@@ -1,0 +1,6 @@
+<div class="container mx-auto p-4 sm:max-w-sm">
+    <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: "false" }, params: { authenticity_token: form_authenticity_token }, class: "flex justify-center w-full" do %>
+      <%= image_tag("web_light_sq_SI.svg", alt: "Google Sign In", class: "w-48") %>
+    <% end %>
+  
+</div>
