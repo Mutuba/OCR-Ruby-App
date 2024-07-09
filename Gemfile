@@ -63,5 +63,6 @@ group :development do
   # gem "spring"
 end
 
-
+gem 'rtesseract'
 gem "tailwindcss-rails", "~> 2.6"
+gem "ruby-vips"
